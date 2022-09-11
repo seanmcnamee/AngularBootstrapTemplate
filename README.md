@@ -48,7 +48,7 @@ autoWatch: true,
 - Make sure `ng build` is working
 - Make sure repo is committed to GitHub
 
-- Test out `ng deploy --base-href=/TemplaterSite/ --name='GH Actions Deployment' --email=seanmcnamee.45@gmail.com`
+- Test out `ng deploy --base-href=/AngularBootstrapTemplate/ --name='GH Actions Deployment' --email=seanmcnamee.45@gmail.com`
 - Edit package.json to include the tests and deployment
 ```json
     "test:ci": "npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
@@ -188,3 +188,17 @@ jobs:
 
 
 ## Template Usage
+
+- Create new repo based on this Template repo
+- Replace all mentions of `AngularBootstrapTemplate` with your repo name
+- Replace all mentions of `angular-bootstrap-template` with your repo name
+      - Notice that a capital letter is equivalent to a hyphen then the lowercase letter variant
+- Create Access Token (for public repos)
+    - User Settings > Developer Settings > Personal access tokens > Generate new token
+	    - Select all repo scopes
+	    - Generate token
+	    - Copy value
+- Add Secret to repo
+    - Settings > Secrets > Actions > New repository secret
+        - Paste value from personal access token
+	    - Name: SEAN_ACCESS_TOKEN
