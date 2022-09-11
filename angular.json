@@ -154,6 +154,9 @@
               "devServerTarget": "AngularBootstrapTemplate:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }

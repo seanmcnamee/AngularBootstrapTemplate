@@ -11,7 +11,9 @@
     "e2e": "ng e2e",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
-    "e2e:ci": "start-server-and-test start http://localhost:4200 cypress:run"
+    "test:ci": "npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
+    "e2e:ci": "start-server-and-test start http://localhost:4200 cypress:run",
+    "deploy": "ng deploy --base-href=/AngularBootstrapTemplate/ --name='GH Actions Deployment' --email=seanmcnamee.45@gmail.com"
   },
   "private": true,
   "dependencies": {
