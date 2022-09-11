@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component } from '@angular/core';
 import { ErrorAlertItem, IErrorAlertsService } from 'src/app/services/error-alerts/error-alerts.service.interface';
 
 @Component({

@@ -29,7 +29,11 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
+  "include": [
+    "src",
+    "node_modules/cypress"
+  ],
   "exclude": [
-    "**/*.spec.ts"
+    "node_modules/cypress" //Can only exclude what has been included. This prevents compile conflicts between Karma and Cypress
   ]
 }

@@ -30,6 +30,20 @@ autoWatch: true,
 ```
 - Test CI tests with `npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI`
     - You may have to `<CTRL>+C` to break
+- Fix compile collisions between Karma and Cypress by adding the following to tsconfig.json
+```json
+{
+  . . .
+  "include": [
+    "src",
+    "node_modules/cypress"
+  ],
+  "exclude": [
+    "node_modules/cypress" //Can only exclude what has been included. This prevents compile conflicts between Karma and Cypress
+  ]
+  . . .
+}
+```
 - Add GitHub pages with `npm install angular-cli-ghpages --save-dev`
 - Make sure `ng build` is working
 - Make sure repo is committed to GitHub
