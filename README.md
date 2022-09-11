@@ -166,6 +166,7 @@ jobs:
 
 - Ensure the following have no issues
    - `npm run start` is working, and everythin functions as expected
+   - Ensure that `npm run lint` passes
    - Ensure that `npm run test:ci` passes
    - Ensure that `npm run e2e:ci` passes
 - Push development branch

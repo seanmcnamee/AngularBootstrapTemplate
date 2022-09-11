@@ -6,7 +6,7 @@ import { ErrorAlertItem, IErrorAlertsService } from 'src/app/services/error-aler
   templateUrl: './error-alerts.component.html',
   styleUrls: ['./error-alerts.component.scss']
 })
-export class ErrorAlertsComponent implements OnInit {
+export class ErrorAlertsComponent {
   errorAlerts: ErrorAlertItem[] = [];
 
   constructor(private _errorAlertsService: IErrorAlertsService) {
@@ -15,9 +15,6 @@ export class ErrorAlertsComponent implements OnInit {
         this.errorAlerts = newErrorAlerts
       }
     );
-  }
-
-  ngOnInit(): void {
   }
 
   public onDismissal(item: ErrorAlertItem) {
