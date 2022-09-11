@@ -37,8 +37,7 @@ autoWatch: true,
 - Edit package.json to include the tests and deployment
 ```json
     "test:ci": "npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI",
-    "e2e:cypress:ci": "ng run TemplaterSite:cypress-run",
-    "deploy": "ng deploy --base-href=/TemplaterSite/ --name='GH Actions Deployment' --email=seanmcnamee.45@gmail.com"
+    "deploy": "ng deploy --base-href=/AngularBootstrapTemplate/ --name='GH Actions Deployment' --email=seanmcnamee.45@gmail.com"
 ```
 - Make CI for GH Actions
 ```yml
