@@ -1,4 +1,8 @@
 # AngularBootstrapTemplate
+[![Angular GitHub CI/CD](https://github.com/seanmcnamee/AngularBootstrapTemplate/actions/workflows/cd.yaml/badge.svg)](https://github.com/seanmcnamee/AngularBootstrapTemplate/actions/workflows/cd.yaml)
+[![pages-build-deployment](https://github.com/seanmcnamee/AngularBootstrapTemplate/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/seanmcnamee/AngularBootstrapTemplate/actions/workflows/pages/pages-build-deployment)
+
+Website available at [https://seanmcnamee.github.io/AngularBootstrapTemplate/](https://seanmcnamee.github.io/AngularBootstrapTemplate/)
 
 ## Steps for creation:
 - Create Angular application with `ng new AngularBootstrapTemplate` with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
