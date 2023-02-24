@@ -5,6 +5,7 @@ export abstract class IErrorAlertsService {
   public abstract AddErrorAndBroadcast(item: ErrorAlertItem): void;
   public abstract RemoveErrorAndBroadcast(item: ErrorAlertItem): void;
   public abstract GetErrorAlertItemsSubject(): Subject<ErrorAlertItem[]>;
+  public abstract ClearErrorsWithScope(scope: string): void;
 }
 
 export class ErrorAlertItem {
@@ -12,6 +13,7 @@ export class ErrorAlertItem {
   static idNum: number = 0;
 
   id: string;
+  scope: string;
   message: string;
   /** dismiss time in miliseconds. When <=0, no auto dismiss*/
   autoDismissDelay: number;
@@ -20,9 +22,10 @@ export class ErrorAlertItem {
   /** Callback function on removal */
   onRemove: (item: ErrorAlertItem) => void;
   
-  public constructor(message: string, autoDismissDelay: number = 0, fadeOut: boolean = true, onRemove: (item: ErrorAlertItem) => void = () => {}){
+  public constructor(message: string, scope: string = "", autoDismissDelay: number = 0, fadeOut: boolean = true, onRemove: (item: ErrorAlertItem) => void = () => {}){
     this.id = String(ErrorAlertItem.idNum++);
     this.message = message;
+    this.scope = scope;
     this.autoDismissDelay = autoDismissDelay;
     this.dismissFadeTime = fadeOut ? 250 : 0;
     this.isDismissing = false;

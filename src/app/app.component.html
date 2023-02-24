@@ -1,15 +1,14 @@
-<app-navbar></app-navbar>
+<header>
+  <app-header></app-header>
+</header>
 
-<div class="sticky-top pt-2">
-  <div class="container-xxl">
-    <div class="row justify-content-end">
-      <div class="col col-auto position-fixed">
-        <app-error-alerts></app-error-alerts>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container-xxl">
+<main class="text-bg-white flex-grow-1 py-3">
+  <div class="container-xxl text-bg-light py-3">
     <router-outlet></router-outlet>
-</div>
+  </div>
+</main>
+
+
+<footer>
+  <app-footer></app-footer>
+</footer>
