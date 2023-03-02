@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   addError() {
     this.errorAlertsService.AddErrorAndBroadcast(
       new ErrorAlertItem(this.errorText ?? "",
-        "homeComponentErrorAlertsScope", this.autoDismissDelay ?? 0)
+        this.homeComponentErrorAlertsScope, this.autoDismissDelay ?? 0)
     );
   }
 }

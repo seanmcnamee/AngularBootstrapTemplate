@@ -5,6 +5,10 @@ import { ILayoutDataService } from '@/services/layout-data/layout-data.service.i
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from '@/layout/header/header.component';
+import { BannerComponent } from '@/layout/header/banner/banner.component';
+import { NavbarComponent } from '@/layout/header/navbar/navbar.component';
+import { ErrorAlertsComponent } from '@/components/error-alerts/error-alerts.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -12,11 +16,12 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ],
+      declarations: [ HeaderComponent, BannerComponent, NavbarComponent, ErrorAlertsComponent ],
       providers: [
         {provide: IErrorAlertsService, useClass: ErrorAlertsService},
         {provide: ILayoutDataService, useClass: LayoutDataService},
-      ]
+      ],
+      imports: [RouterTestingModule]
     })
     .compileComponents();
 
