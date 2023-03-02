@@ -6,10 +6,8 @@ import { ErrorAlertItem, IErrorAlertsService } from './error-alerts.service.inte
   providedIn: 'root'
 })
 export class ErrorAlertsService implements IErrorAlertsService {
-  errorItems: ErrorAlertItem[] = [];
-  errorItemsChanged: Subject<ErrorAlertItem[]> = new Subject<ErrorAlertItem[]>();
-
-  constructor() { }
+  private errorItems: ErrorAlertItem[] = [];
+  private errorItemsChanged: Subject<ErrorAlertItem[]> = new Subject<ErrorAlertItem[]>();
 
   public GetErrorAlertItemsSubject(): Subject<ErrorAlertItem[]> {
     return this.errorItemsChanged;
@@ -46,11 +44,17 @@ export class ErrorAlertsService implements IErrorAlertsService {
   }
 
   public RemoveErrorAndBroadcast(item: ErrorAlertItem) {
-    var indexOfItem = this.errorItems.indexOf(item);
+    const indexOfItem = this.errorItems.indexOf(item);
     if (indexOfItem >= 0) {  //Ensure item hasn't been user-dismissed
       this.errorItems.splice(this.errorItems.indexOf(item), 1);
       this.errorItemsChanged.next(this.errorItems);
       item.onRemove(item); //Removal callback
     }
+  }
+
+  
+  public ClearErrorsWithScope(scope: string) {
+    const errorItemsToRemove = this.errorItems.filter(item => item.scope === scope);
+    errorItemsToRemove.forEach(item => this.RemoveErrorAndBroadcast(item));
   }
 }

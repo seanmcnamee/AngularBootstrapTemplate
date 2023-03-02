@@ -1,0 +1,27 @@
+<div class="row">
+    <h3>Home</h3>
+    <p>
+        Welcome to the AngularBootstrapTemplate Website!
+        This template is meant to get you started with creating an Angular application with Bootstrap.
+    </p>
+    <p>
+        Each page passes data to the layout components via the <kbd>ILayoutDataService</kbd>
+    </p>
+    <p>
+        There is also an <kbd>IErrorAlertsService</kbd> and component that aid with showing errors to users.
+        Enter text and click "Generate Error" to see it in action. Errors are pretty customizable on creation.
+        They can specify if/when to auto-dismiss, if they should fade, and what should happen when they are removed.
+        The header component defines these errors to be displayed below the other header content with absolute positioning.
+    </p>
+    <div class="col-12">
+        <div class="row mx-0 g-2">
+            <div class="col-auto">
+                <div class="row mx-0 g-2">
+                    <input placeholder="Error Text" class="form-control col-12" [(ngModel)]="errorText">
+                    <input placeholder="Auto Dismiss Delay in Miliseconds" class="form-control col-6" [(ngModel)]="autoDismissDelay">
+                    <button class="btn btn-primary col-6" (click)="addError()">Generate Error</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,15 @@
 import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { FooterComponent } from '@/layout/footer/footer.component';
+import { HeaderComponent } from '@/layout/header/header.component';
+import { ILayoutDataService } from '@/services/layout-data/layout-data.service.interface';
+import { LayoutDataService } from '@/services/layout-data/layout-data.service';
+import { BannerComponent } from '@/layout/header/banner/banner.component';
+import { NavbarComponent } from '@/layout/header/navbar/navbar.component';
+import { ErrorAlertsComponent } from '@/components/error-alerts/error-alerts.component';
+import { IErrorAlertsService } from '@/services/error-alerts/error-alerts.service.interface';
+import { ErrorAlertsService } from '@/services/error-alerts/error-alerts.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -8,8 +17,14 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule
       ],
+      providers: [
+        {provide: ILayoutDataService, useClass: LayoutDataService},
+        {provide: IErrorAlertsService, useClass: ErrorAlertsService},
+      ],
       declarations: [
-        AppComponent
+        AppComponent,
+        FooterComponent,
+        HeaderComponent, BannerComponent, NavbarComponent, ErrorAlertsComponent 
       ],
     }).compileComponents();
   });
