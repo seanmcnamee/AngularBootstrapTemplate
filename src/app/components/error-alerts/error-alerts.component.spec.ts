@@ -10,9 +10,9 @@ describe('ErrorAlertsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ErrorAlertsComponent ],
-      providers: [{ provide: IErrorAlertsService, useClass: ErrorAlertsService }]
-    })
+    imports: [ErrorAlertsComponent],
+    providers: [{ provide: IErrorAlertsService, useClass: ErrorAlertsService }]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(ErrorAlertsComponent);

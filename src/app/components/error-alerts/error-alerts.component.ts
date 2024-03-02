@@ -1,11 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ErrorAlertItem, IErrorAlertsService } from '@/services/error-alerts/error-alerts.service.interface';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'app-error-alerts',
-  templateUrl: './error-alerts.component.html',
-  styleUrls: ['./error-alerts.component.scss']
+    selector: 'app-error-alerts',
+    templateUrl: './error-alerts.component.html',
+    styleUrls: ['./error-alerts.component.scss'],
+    standalone: true,
+    imports: [NgFor]
 })
 export class ErrorAlertsComponent implements OnInit, OnDestroy {
   errorAlerts: ErrorAlertItem[] = [];

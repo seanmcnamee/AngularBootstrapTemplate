@@ -16,13 +16,12 @@ describe('HeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent, BannerComponent, NavbarComponent, ErrorAlertsComponent ],
-      providers: [
-        {provide: IErrorAlertsService, useClass: ErrorAlertsService},
-        {provide: ILayoutDataService, useClass: LayoutDataService},
-      ],
-      imports: [RouterTestingModule]
-    })
+    providers: [
+        { provide: IErrorAlertsService, useClass: ErrorAlertsService },
+        { provide: ILayoutDataService, useClass: LayoutDataService },
+    ],
+    imports: [RouterTestingModule, HeaderComponent, BannerComponent, NavbarComponent, ErrorAlertsComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);

@@ -9,9 +9,8 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ],
-      imports: [RouterTestingModule]
-    })
+    imports: [RouterTestingModule, NavbarComponent]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(NavbarComponent);

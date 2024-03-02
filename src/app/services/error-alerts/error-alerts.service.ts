@@ -35,7 +35,7 @@ export class ErrorAlertsService implements IErrorAlertsService {
 
     //Setup removal after dismissFadeTime ms
     setTimeout(() => {
-      
+
       if (this.errorItems.includes(item)) { //Ensure item hasn't been user-dismissed
         this.RemoveErrorAndBroadcast(item)
       }
@@ -52,7 +52,7 @@ export class ErrorAlertsService implements IErrorAlertsService {
     }
   }
 
-  
+
   public ClearErrorsWithScope(scope: string) {
     const errorItemsToRemove = this.errorItems.filter(item => item.scope === scope);
     errorItemsToRemove.forEach(item => this.RemoveErrorAndBroadcast(item));

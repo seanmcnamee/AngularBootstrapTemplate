@@ -14,19 +14,17 @@ import { RouterTestingModule } from '@angular/router/testing';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      providers: [
-        {provide: ILayoutDataService, useClass: LayoutDataService},
-        {provide: IErrorAlertsService, useClass: ErrorAlertsService},
-      ],
-      declarations: [
-        AppComponent,
+    imports: [
+        RouterTestingModule,
         FooterComponent,
-        HeaderComponent, BannerComponent, NavbarComponent, ErrorAlertsComponent 
-      ],
-    }).compileComponents();
+        HeaderComponent, BannerComponent, NavbarComponent, ErrorAlertsComponent,
+        AppComponent
+    ],
+    providers: [
+        { provide: ILayoutDataService, useClass: LayoutDataService },
+        { provide: IErrorAlertsService, useClass: ErrorAlertsService },
+    ],
+}).compileComponents();
   });
 
   it('should create the app', () => {
