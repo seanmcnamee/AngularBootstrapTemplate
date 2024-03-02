@@ -9,6 +9,9 @@ import { BannerComponent } from '@/layout/header/banner/banner.component';
 import { NavbarComponent } from '@/layout/header/navbar/navbar.component';
 import { ErrorAlertsComponent } from '@/components/error-alerts/error-alerts.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { NgIf } from '@angular/common';
+import { IGlobalDataService } from '@/services/global-data/global-data.service.interface';
+import { GlobalDataService } from '@/services/global-data/global-data.service';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -19,8 +22,9 @@ describe('HeaderComponent', () => {
     providers: [
         { provide: IErrorAlertsService, useClass: ErrorAlertsService },
         { provide: ILayoutDataService, useClass: LayoutDataService },
+        { provide: IGlobalDataService, useClass: GlobalDataService },
     ],
-    imports: [RouterTestingModule, HeaderComponent, BannerComponent, NavbarComponent, ErrorAlertsComponent]
+    imports: [RouterTestingModule, NgIf, HeaderComponent, BannerComponent, NavbarComponent, ErrorAlertsComponent]
 })
     .compileComponents();
 

@@ -10,6 +10,8 @@ import { ErrorAlertsComponent } from '@/components/error-alerts/error-alerts.com
 import { IErrorAlertsService } from '@/services/error-alerts/error-alerts.service.interface';
 import { ErrorAlertsService } from '@/services/error-alerts/error-alerts.service';
 import { RouterTestingModule } from '@angular/router/testing';
+import { IGlobalDataService } from './services/global-data/global-data.service.interface';
+import { GlobalDataService } from './services/global-data/global-data.service';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -23,6 +25,7 @@ describe('AppComponent', () => {
     providers: [
         { provide: ILayoutDataService, useClass: LayoutDataService },
         { provide: IErrorAlertsService, useClass: ErrorAlertsService },
+        { provide: IGlobalDataService, useClass: GlobalDataService },
     ],
 }).compileComponents();
   });

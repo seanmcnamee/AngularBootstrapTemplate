@@ -1,15 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from "@angular/router/testing";
-
 import { BannerComponent } from './banner.component';
+import { IGlobalDataService } from '@/services/global-data/global-data.service.interface';
+import { GlobalDataService } from '@/services/global-data/global-data.service';
 
 describe('BannerComponent', () => {
   let component: BannerComponent;
   let fixture: ComponentFixture<BannerComponent>;
 
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [RouterTestingModule, BannerComponent]
+    imports: [RouterTestingModule, BannerComponent],
+    providers: [
+      { provide: IGlobalDataService, useClass: GlobalDataService },
+  ]
 })
     .compileComponents();
 
