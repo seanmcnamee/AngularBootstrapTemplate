@@ -1,7 +1,6 @@
 import { Subject } from "rxjs";
 
 export abstract class IErrorAlertsService {
-  constructor() { }
   public abstract AddErrorAndBroadcast(item: ErrorAlertItem): void;
   public abstract RemoveErrorAndBroadcast(item: ErrorAlertItem): void;
   public abstract GetErrorAlertItemsSubject(): Subject<ErrorAlertItem[]>;
@@ -10,7 +9,7 @@ export abstract class IErrorAlertsService {
 
 export class ErrorAlertItem {
   /** Global counter for error alert items */
-  static idNum: number = 0;
+  private static idNum: number = 0;
 
   id: string;
   scope: string;
@@ -21,7 +20,7 @@ export class ErrorAlertItem {
   isDismissing: boolean;
   /** Callback function on removal */
   onRemove: (item: ErrorAlertItem) => void;
-  
+
   public constructor(message: string, scope: string = "", autoDismissDelay: number = 0, fadeOut: boolean = true, onRemove: (item: ErrorAlertItem) => void = () => {}){
     this.id = String(ErrorAlertItem.idNum++);
     this.message = message;
