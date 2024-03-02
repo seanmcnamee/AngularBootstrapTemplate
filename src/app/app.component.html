@@ -1,14 +1,14 @@
-<header>
+<header [attr.data-bs-theme]="globalData?.theme">
   <app-header></app-header>
 </header>
 
-<main class="text-bg-white flex-grow-1 py-3">
-  <div class="container-xxl text-bg-light py-3">
+<main class="text-bg-white flex-grow-1 py-3" [attr.data-bs-theme]="globalData?.theme">
+  <div class="container-xxl py-3 text-tertiary-emphasis bg-tertiary-subtle border border-tertiary-subtle">
     <router-outlet></router-outlet>
   </div>
 </main>
 
 
-<footer>
+<footer [attr.data-bs-theme]="globalData?.theme">
   <app-footer></app-footer>
 </footer>

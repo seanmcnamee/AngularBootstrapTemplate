@@ -1,15 +1,35 @@
 
 ////////////////////////////////////////////
-/////////////////  Colors  /////////////////
+///////////  Color Overrides  //////////////
 ////////////////////////////////////////////
+// Pre-existing theme-color overrides should replace applicable variables directly
 $primary: #0d6efd;
-// $secondary: ;
-$tertiary: #712cf9;
+$secondary: #ffe69c;
 // $success: ;
 // $info: ;
 // $warning: ;
 // $danger: ;
-// $light: ;
-// $dark: ;
-$white: #fff;
-$black: #000;
+
+// New colors should utilize this map
+$custom-theme-colors: (
+  "tertiary": #712cf9,
+  "secondary": #0d6efd
+);
+
+// Dark/Light theme specific coloring can be overridden for pre-existing or new theme-colors
+$custom-theme-colors-text: (
+  "secondary": black
+) !default;
+$custom-theme-colors-bg-subtle: (
+  "secondary": $secondary
+) !default;
+$custom-theme-colors-border-subtle: () !default;
+$custom-theme-colors-text-dark: (
+  "secondary": white
+) !default;
+$custom-theme-colors-bg-subtle-dark: (
+  "secondary": #664d03
+) !default;
+$custom-theme-colors-border-subtle-dark: (
+  "secondary": black
+) !default;

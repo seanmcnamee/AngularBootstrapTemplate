@@ -1,7 +1,6 @@
 import { Subject } from "rxjs";
 
 export abstract class ILayoutDataService {
-  constructor() { }  
   public abstract GetLayoutDataSubject(): Subject<LayoutData>;
   public abstract SetLayoutData(layoutData: LayoutData): void;
   public abstract ClearLayoutData(): void;

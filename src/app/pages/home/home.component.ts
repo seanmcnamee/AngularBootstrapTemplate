@@ -8,7 +8,7 @@ import { FormsModule } from '@angular/forms';
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
     standalone: true,
-    imports: [FormsModule]
+    imports: [ FormsModule ]
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private homeComponentErrorAlertsScope = "HomeComponent";

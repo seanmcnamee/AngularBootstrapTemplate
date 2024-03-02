@@ -14,21 +14,19 @@ import { BannerComponent } from './banner/banner.component';
     imports: [BannerComponent, NgIf, NavbarComponent, ErrorAlertsComponent]
 })
 export class HeaderComponent implements OnInit, OnDestroy {
-  private layoutDataSubscription: Subscription | undefined;
-  headerData: HeaderData | undefined;
+  private _layoutDataSubscription: Subscription | undefined;
+  headerData: HeaderData | undefined = undefined;
 
-  constructor(private layoutDataService: ILayoutDataService) { 
-    this.headerData = undefined;
-  }
+  constructor(private _layoutDataService: ILayoutDataService) { }
 
   ngOnInit() {
-    this.layoutDataSubscription = this.layoutDataService.GetLayoutDataSubject()
+    this._layoutDataSubscription = this._layoutDataService.GetLayoutDataSubject()
     .subscribe((navbarData: LayoutData) => {
       this.headerData = navbarData.header;
     })
   }
 
   ngOnDestroy() {
-    this.layoutDataSubscription?.unsubscribe();
+    this._layoutDataSubscription?.unsubscribe();
   }
 }

@@ -2,33 +2,68 @@
 
 @import "bootstrap/scss/_functions";
 @import "bootstrap/scss/_variables";
+@import "bootstrap/scss/_variables-dark";
 /////////////////////////////////////////////////////////////////
 //////////////////////  Extend Variables ////////////////////////
 /////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////
-////////////  Theme Colors  ////////////////
-////////////////////////////////////////////
-$theme-colors: (
-    "primary": $primary,
-    "secondary": $secondary,
-    "tertiary": $tertiary,
-    "success": $success,
-    "info": $info,
-    "warning": $warning,
-    "danger": $danger,
-    "light": $light,
-    "dark": $dark,
-    "white": $white,
-    "black": $black
-);
+// Add a custom colors to $theme-colors
+$custom-theme-colors: () !default;
+$theme-colors: map-merge($theme-colors, $custom-theme-colors);
 
 @import "bootstrap/scss/_maps";
+
+
+// Add custom colors light/dark variants for text/background/border
+@function getMappedCustomThemeColors($computeFn, $param) {
+  $newMap: ();
+  @each $key, $value in $custom-theme-colors {
+    $newMap: map-merge($newMap, ($key: call(get-function($computeFn), $value, $param)));
+  }
+  @return $newMap;
+}
+
+$custom-theme-colors-text: () !default;
+$theme-colors-text: map-merge($theme-colors-text, map-merge(getMappedCustomThemeColors(shade-color, 60%), $custom-theme-colors-text));
+
+$custom-theme-colors-bg-subtle: () !default;
+$theme-colors-bg-subtle: map-merge($theme-colors-bg-subtle, map-merge(getMappedCustomThemeColors(tint-color, 80%), $custom-theme-colors-bg-subtle));
+
+$custom-theme-colors-border-subtle: () !default;
+$theme-colors-border-subtle: map-merge($theme-colors-border-subtle, map-merge(getMappedCustomThemeColors(tint-color, 60%), $custom-theme-colors-border-subtle));
+
+$custom-theme-colors-text-dark: () !default;
+$theme-colors-text-dark: map-merge($theme-colors-text-dark, map-merge(getMappedCustomThemeColors(tint-color, 40%), $custom-theme-colors-text-dark));
+
+$custom-theme-colors-bg-subtle-dark: () !default;
+$theme-colors-bg-subtle-dark: map-merge($theme-colors-bg-subtle-dark, map-merge(getMappedCustomThemeColors(shade-color, 80%), $custom-theme-colors-bg-subtle-dark));
+
+$custom-theme-colors-border-subtle-dark: () !default;
+$theme-colors-border-subtle-dark: map-merge($theme-colors-border-subtle-dark, map-merge(getMappedCustomThemeColors(shade-color, 40%), $custom-theme-colors-border-subtle-dark));
+
+
+// Ensure custom colors are included for light/dark utilities
+@function getCustomThemeColorReferences($typeKey, $typeValue) {
+  $newMap: ();
+  @each $key, $value in $custom-theme-colors {
+    $newMap: map-merge($newMap, (#{$key}-#{$typeKey}: var(--#{$prefix}#{$key}-#{$typeValue})));
+  }
+  @return $newMap;
+}
+
+$utilities-text-emphasis-colors: map-merge($utilities-text-emphasis-colors, getCustomThemeColorReferences("emphasis", "text-emphasis"));
+$utilities-bg-subtle: map-merge($utilities-bg-subtle, getCustomThemeColorReferences("subtle", "bg-subtle"));
+$utilities-border-subtle: map-merge($utilities-border-subtle, getCustomThemeColorReferences("subtle", "border-subtle"));
+
+
 @import "bootstrap/scss/_mixins";
 @import "bootstrap/scss/_utilities";
 /////////////////////////////////////////////////////////////////
 //////////////////////  Extend Utilities ////////////////////////
 /////////////////////////////////////////////////////////////////
+
+
+
 
 
 // Layout & components
