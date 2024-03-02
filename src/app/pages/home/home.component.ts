@@ -1,11 +1,14 @@
 import { ErrorAlertItem, IErrorAlertsService } from '@/services/error-alerts/error-alerts.service.interface';
 import { ILayoutDataService } from '@/services/layout-data/layout-data.service.interface';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.scss'],
+    standalone: true,
+    imports: [ FormsModule ]
 })
 export class HomeComponent implements OnInit, OnDestroy {
   private homeComponentErrorAlertsScope = "HomeComponent";

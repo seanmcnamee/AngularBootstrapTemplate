@@ -13,15 +13,15 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
+    imports: [
         FormsModule,
-      ],
-      declarations: [ HomeComponent ],
-      providers: [
-        {provide: ILayoutDataService, useClass: LayoutDataService},
-        {provide: IErrorAlertsService, useClass: ErrorAlertsService},
-      ]
-    })
+        HomeComponent,
+    ],
+    providers: [
+        { provide: ILayoutDataService, useClass: LayoutDataService },
+        { provide: IErrorAlertsService, useClass: ErrorAlertsService },
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(HomeComponent);

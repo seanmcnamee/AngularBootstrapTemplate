@@ -10,11 +10,11 @@ describe('NotFoundComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NotFoundComponent ],
-      providers: [
-        {provide: ILayoutDataService, useClass: LayoutDataService},
-      ]
-    })
+    imports: [NotFoundComponent],
+    providers: [
+        { provide: ILayoutDataService, useClass: LayoutDataService },
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(NotFoundComponent);

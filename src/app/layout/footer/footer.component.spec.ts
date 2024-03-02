@@ -10,11 +10,11 @@ describe('FooterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ FooterComponent ],
-      providers: [
-        {provide: ILayoutDataService, useClass: LayoutDataService},
-      ]
-    })
+    imports: [FooterComponent],
+    providers: [
+        { provide: ILayoutDataService, useClass: LayoutDataService },
+    ]
+})
     .compileComponents();
 
     fixture = TestBed.createComponent(FooterComponent);

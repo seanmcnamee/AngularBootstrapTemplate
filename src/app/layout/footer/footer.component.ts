@@ -3,26 +3,25 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+    selector: 'app-footer',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.scss'],
+    standalone: true
 })
 export class FooterComponent implements OnInit, OnDestroy {
-  private layoutDataSubscription: Subscription | undefined;
-  footerData: FooterData | undefined;
+  private _layoutDataSubscription: Subscription | undefined;
+  footerData: FooterData | undefined = undefined;
 
-  constructor(private layoutDataService: ILayoutDataService) { 
-    this.footerData = undefined;
-  }
+  constructor(private _layoutDataService: ILayoutDataService) { }
 
   ngOnInit() {
-    this.layoutDataSubscription = this.layoutDataService.GetLayoutDataSubject()
+    this._layoutDataSubscription = this._layoutDataService.GetLayoutDataSubject()
     .subscribe((navbarData: LayoutData) => {
       this.footerData = navbarData.footer;
     })
   }
 
   ngOnDestroy() {
-    this.layoutDataSubscription?.unsubscribe();
+    this._layoutDataSubscription?.unsubscribe();
   }
 }

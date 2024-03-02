@@ -1,17 +1,27 @@
-<div class="navbar navbar-light text-bg-light">
-    <div class="container-xxl">
-        <a class="navbar-brand" [routerLink]="['']">
-            <img src="https://raw.githubusercontent.com/seanmcnamee/photos/main/seanlogo-dark.png" alt="Icon" width="30"
-                height="30">
-                AngularBootstrapTemplate
-        </a>
-        <div class="navbar-text ms-auto text-black">
-            <div class="col-12 fs-2">
-                {{title}}
-            </div>
-            <div class="col-12 fs-5">
-                {{subTitle}}
-            </div>
-        </div>
+<div class="navbar">
+  <div class="container-xxl">
+    <a class="navbar-brand" [routerLink]="['']">
+      <img *ngIf="globalData?.theme === 'light'"
+        src="https://raw.githubusercontent.com/seanmcnamee/photos/main/seanlogo-dark.png" alt="Sean McNamee Icon" width="30"
+        height="30">
+      <img *ngIf="globalData?.theme === 'dark'"
+        src="https://raw.githubusercontent.com/seanmcnamee/photos/main/seanlogo.png" alt="Sean McNamee Icon" width="30"
+        height="30">
+      <span>AngularBootstrapTemplate</span>
+    </a>
+    <div class="navbar-text ms-auto">
+      <div class="col-12 fs-2">
+        {{title}}
+      </div>
+      <div class="col-12 fs-5">
+        {{subTitle}}
+      </div>
     </div>
+    <div class="navbar-text fs-4 ps-5">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" [checked]="globalData?.theme === 'dark'"
+          (change)="toggleTheme()">
+      </div>
+    </div>
+  </div>
 </div>
